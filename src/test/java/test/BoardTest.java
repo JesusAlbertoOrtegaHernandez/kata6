@@ -1,36 +1,35 @@
-package software.ulpgc.kata6;
+package test;
 
 import org.junit.Test;
-import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
-import static software.ulpgc.kata6.BoardTest.Cases.*;
-
 import software.ulpgc.kata6.Board;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static test.BoardTest.Cases.*;
 
 
 public class BoardTest {
-
     @Test
-    public void should_return_empty_board_given_3x3_empty(){
+    public void should_return_empty_board_given_3x3_empty_board() {
         assertThat(new Board(empty3x3).next().toString()).isEqualTo(empty3x3);
     }
 
     @Test
-    public void should_return_empty_board_given3x3_with_one_alive(){
+    public void should_return_empty_board_given_3x3_board_with_one_alive_cell() {
         assertThat(new Board(oneAliveCell3x3).next().toString()).isEqualTo(empty3x3);
     }
 
     @Test
-    public void should_return_empty_board_given4x4_with_one_alive(){
+    public void should_return_empty_board_given_4x4_board_with_one_alive_cell() {
         assertThat(new Board(oneAliveCell4x4).next().toString()).isEqualTo(empty4x4);
     }
 
     @Test
-    public void should_return_empty_board_given3x3_square_with_square_live_cell3x3(){
+    public void should_return_a_board_with_square_live_cell_3x3_given_square_live_cell_3x3() {
         assertThat(new Board(squareLiveCell3x3).next().toString()).isEqualTo(squareLiveCell3x3);
     }
 
     @Test
-    public void should_return_empty_board_given3x3_square_with_triangle_live_cell3x3(){
+    public void should_return_a_board_with_square_live_cell_3x3_given_triangle_live_cell_3x3() {
         assertThat(new Board(triangleLiveCell3x3).next().toString()).isEqualTo(squareLiveCell3x3);
     }
 
@@ -40,27 +39,11 @@ public class BoardTest {
                 ...
                 ...
                 """;
-
         static final String oneAliveCell3x3 = """
             ...
             ..X
             ...
             """;
-
-
-        static final String oneAliveCell4x4 = """
-            ....
-            ..X.
-            ....
-            ....
-            """;
-
-        static final String empty4x4 ="""
-                ....
-                ....
-                ....
-                ....
-                """;
 
         static final String squareLiveCell3x3 = """
             .XX
@@ -73,5 +56,21 @@ public class BoardTest {
             .XX
             ...
             """;
+
+        static final String empty4x4 = """
+                ....
+                ....
+                ....
+                ....
+                """;
+
+        static final String oneAliveCell4x4 = """
+            ....
+            ..X.
+            ....
+            ....
+            """;
+
     }
+
 }

@@ -77,4 +77,8 @@ public class Board {
         int neighbors();
         boolean isAlive();
     }
+    @Override
+    public String toString() {
+        return String.join("\n", states) + "\n";
+    }
 }
